@@ -1,6 +1,5 @@
 # AMLProjectOne
-Applied Machine Learning Project One  
-AML Project1 – Exploring Labeled Data Using kNN
+## AML Project1 – Exploring Labeled Data Using kNN
 The objective of this project is to understand the workflow of supervised learning. You will
 utilize the simple and popular classifier kNN (k‐nearest neighbors) to explore a labeled dataset
 of your choice. You are required to pick an interesting dataset to demonstrate your
@@ -9,12 +8,12 @@ This project is to be done in a group of 3 students. The responsibilities of the
 group must be clearly delimited and stated in a statement (attached to your project) so that
 each of you can be graded fairly and separately.
 
-Requirement:
+### Requirement:
 1. Source code in Python (done in a group).  
 2. Group project presentation in class (12 min), Q&A (3 min)  
 3. Individual project report (3/4 pages, no longer than 5 pages, fonts>=12)
 
-Specific requirements:
+### Specific requirements:
 Your data must be an appropriate dataset to illustrate the workflow of kNN and it
 should have at least 4 attributes and 40 instances (data points).
 Your Python script must answer the following questions:
@@ -30,8 +29,7 @@ training and how many percent for testing
 5. Testing result; what’s the estimated accuracy of your model on future data
   a. Present your accuracy in a confusion matrix.  
 
-Your individual report reports and explains your exploration of kNN and the dataset you
-picked. It must be well organized (nice and neat) and should include:
+### Your individual report reports and explains your exploration of kNN and the dataset you picked. It must be well organized (nice and neat) and should include:
 1. The description of the problem you want to solve using kNN
 2. Background of your data
 3. Statistical summary of your data
@@ -53,13 +51,13 @@ picked. It must be well organized (nice and neat) and should include:
 8. (Graduate students) A summary of commonly used nearest neighbor finding
    algorithms (additional 1 or 2 pages)
 
-Your presentation must show:
+### Your presentation must show:
 1. Your understanding of supervised learning and kNN
 2. A good story about your dataset and  
 3. What your exploration tells us
 4. Demo of your code
 
-Submission instructions:
+### Submission instructions:
 1. Due at the beginning of the due day
 2. An electronic copy of your Python scripts, drop it to the drop box at Brightspace (yes,
 need only one copy per group)
@@ -67,7 +65,7 @@ need only one copy per group)
 4. ppt presentation slides, drop it to the drop box at Brightspace (yes, need only one copy per group)  
 5. An individual statement of the responsibilities of each member in your group
 
-Here a couple of example datasets:
+### Here a couple of example datasets:
 1. Iris dataset: The data set consists of 50 samples from each of three species of Iris (Iris
 setosa, Iris virginica and Iris versicolor), 150 instances, 4 attributes, 3 classes. The
 dataset in Excel can be downloaded here. The task: determine the species of a given
