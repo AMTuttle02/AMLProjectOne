@@ -66,10 +66,10 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import axes3d   # must keep
 fig = plt.figure()
 ax = fig.add_subplot(111, projection = '3d')
-ax.scatter(X['width'], X['height'], X['color_score'], c = y, marker = 'o', s=100)
-ax.set_xlabel('width')
-ax.set_ylabel('height')
-ax.set_zlabel('color_score')
+ax.scatter(X['Gender'], X['Height'], X['Weight'], c = y, marker = 'o', s=100)
+ax.set_xlabel('Gender')
+ax.set_ylabel('Height')
+ax.set_zlabel('Weight')
 
 plt.figure()
 plt.xlabel('k')
