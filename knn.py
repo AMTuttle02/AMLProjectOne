@@ -16,28 +16,23 @@ bmi = pd.read_csv('bmi.csv')
 gender = {'Male': 1,'Female': 2}
 
 bmi.Gender = [gender[item] for item in bmi.Gender]
-print(bmi)
 
 bmi.head()
 
-# create a mapping from bmi label value to bmi name to make results easier to interpret
-lookup_bmi_name = dict(zip(bmi.Index.unique(), bmi.Gender.unique()))
-print(lookup_bmi_name)
-
-X = bmi[['Index', 'Height', 'Weight']]
-y = bmi[['Gender']]
+X = bmi[['Gender', 'Height', 'Weight']]
+y = bmi['Index']
 
 knn.fit(X, y)
 
-unknown1 = pd.DataFrame([[3, 175, 95]], columns=['Index', 'height', 'weight'])
+unknown1 = pd.DataFrame([[1, 174, 96]], columns=['Gender', 'Height', 'Weight'])
 bmi_prediction = knn.predict(unknown1)
-print(lookup_bmi_name[bmi_prediction[0]])
+print(bmi_prediction[0])
 print(knn.predict_proba(unknown1))
 
-# second example: a larger, elongated fruit with mass 100g, width 6.3 cm, height 8.5 cm, color_score 6.3
-unknown2 = pd.DataFrame([[8.5, 6.3, 100, 6.3]], columns=['height', 'width', 'mass', 'color_score'])
-fruit_prediction = knn.predict(unknown2)
-print(lookup_fruit_name[fruit_prediction[0]])
+# second example:
+unknown2 = pd.DataFrame([[2, 185, 110]], columns=['Gender', 'Height', 'Weight'])
+bmi_prediction = knn.predict(unknown2)
+print(bmi_prediction[0])
 print(knn.predict_proba(unknown2))
 
 from sklearn.model_selection import train_test_split
