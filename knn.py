@@ -11,21 +11,27 @@ print(knn.predict([[1.1]]))
 print(knn.predict_proba([[1.1]]))
 
 import pandas as pd
-fruits = pd.read_csv('fruit_data_with_colors.txt', sep='\t')
-fruits.head()
+bmi = pd.read_csv('bmi.csv')
 
-# create a mapping from fruit label value to fruit name to make results easier to interpret
-lookup_fruit_name = dict(zip(fruits.fruit_label.unique(), fruits.fruit_name.unique()))
-print(lookup_fruit_name)
+gender = {'Male': 1,'Female': 2}
 
-X = fruits[['height', 'width', 'mass', 'color_score']]
-y = fruits['fruit_label']
+bmi.Gender = [gender[item] for item in bmi.Gender]
+print(bmi)
+
+bmi.head()
+
+# create a mapping from bmi label value to bmi name to make results easier to interpret
+lookup_bmi_name = dict(zip(bmi.Index.unique(), bmi.Gender.unique()))
+print(lookup_bmi_name)
+
+X = bmi[['Index', 'Height', 'Weight']]
+y = bmi[['Gender']]
 
 knn.fit(X, y)
 
-unknown1 = pd.DataFrame([[5.5, 4.3, 20, 5.5]], columns=['height', 'width', 'mass', 'color_score'])
-fruit_prediction = knn.predict(unknown1)
-print(lookup_fruit_name[fruit_prediction[0]])
+unknown1 = pd.DataFrame([[3, 175, 95]], columns=['Index', 'height', 'weight'])
+bmi_prediction = knn.predict(unknown1)
+print(lookup_bmi_name[bmi_prediction[0]])
 print(knn.predict_proba(unknown1))
 
 # second example: a larger, elongated fruit with mass 100g, width 6.3 cm, height 8.5 cm, color_score 6.3
