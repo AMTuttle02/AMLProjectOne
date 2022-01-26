@@ -26,14 +26,25 @@ knn.fit(X, y)
 
 unknown1 = pd.DataFrame([[1, 174, 96]], columns=['Gender', 'Height', 'Weight'])
 bmi_prediction = knn.predict(unknown1)
-print(bmi_prediction[0])
+
+# Describes what each index value is based on the array location
+bmiDescription = ['Extremely Weak', 'Weak', 'Normal', 'Overweight', 'Obesity', 'Extreme Obesity']
+
+# print user friendly meaning of Index value
+print(bmiDescription[bmi_prediction[0]])
+
+# print probability of each index value
 print(knn.predict_proba(unknown1))
 
 # second example:
-unknown2 = pd.DataFrame([[2, 185, 110]], columns=['Gender', 'Height', 'Weight'])
+unknown2 = pd.DataFrame([[1, 190, 55]], columns=['Gender', 'Height', 'Weight'])
 bmi_prediction = knn.predict(unknown2)
-print(bmi_prediction[0])
-print(knn.predict_proba(unknown2))
+
+# print user friendly meaning of Index value
+print(bmiDescription[bmi_prediction[0]])
+
+# print probability of each index value
+print(knn.predict_proba(unknown1))
 
 from sklearn.model_selection import train_test_split
 #random_state: set seed for random# generator
