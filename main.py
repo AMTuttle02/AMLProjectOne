@@ -11,15 +11,17 @@ transfusion_data = pd.read_csv('transfusion.csv', sep=',')
 
 # Renaming the column titles and shortening the names of them
 transfusion_data.columns = ["Recency", "Frequency", "Monetary", "Time", "Donated_2007"]
+print("Total number of Attributes: 4")
+print("Index: Donated in 2007")
+print("Distance Metric: Eucledian")
+print("Training Size: 75%")
+print("Testing Size: 25%")
 print(transfusion_data.head())
-
-# # create a mapping from fruit label value to fruit name to make results easier to interpret
-# lookup_fruit_name = dict(zip(fruits.fruit_label.unique(), fruits.fruit_name.unique()))
-# print(lookup_fruit_name)
 
 X = transfusion_data[['Recency', 'Frequency', 'Monetary', 'Time']]
 y = transfusion_data['Donated_2007']
 
+# uses default Eucledian distance
 knn = KNeighborsClassifier(n_neighbors=3)
 knn.fit(X, y)
 
