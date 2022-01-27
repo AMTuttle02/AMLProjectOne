@@ -5,6 +5,7 @@ from sklearn.model_selection import train_test_split
 from matplotlib import cm
 from pandas.plotting import scatter_matrix
 import matplotlib.pyplot as plt
+from sklearn.metrics import confusion_matrix
 
 
 transfusion_data = pd.read_csv('transfusion.csv', sep=',')
@@ -16,7 +17,6 @@ print("Index: Donated in 2007")
 print("Distance Metric: Eucledian")
 print("Training Size: 75%")
 print("Testing Size: 25%")
-print(transfusion_data.head())
 
 X = transfusion_data[['Recency', 'Frequency', 'Monetary', 'Time']]
 y = transfusion_data['Donated_2007']
@@ -31,6 +31,13 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=.25)
 
 # Train the classifier (fit the estimator) using the training data
 knn.fit(X_train, y_train)
+
+# Create confusion matrix
+print ("Confusion Matrix:")
+y_pred = knn.predict(X_test)
+cf_matrix = confusion_matrix(y_test, y_pred)
+
+print(cf_matrix)
 
 # Estimate the accuracy of the classifier on future data, using the test data
 accuracy = knn.score(X_test, y_test)
@@ -80,3 +87,5 @@ for s in t:
 plt.xlabel('Training set proportion (%)')
 plt.ylabel('accuracy')
 plt.show()
+
+
