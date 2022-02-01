@@ -22,7 +22,7 @@ X = transfusion_data[['Recency', 'Frequency', 'Monetary', 'Time']]
 y = transfusion_data['Donated_2007']
 
 # uses default Eucledian distance
-knn = KNeighborsClassifier(n_neighbors=3)
+knn = KNeighborsClassifier(n_neighbors=3, metric="euclidean")
 knn.fit(X, y)
 
 # random_state: set seed for random# generator
