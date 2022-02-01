@@ -13,10 +13,10 @@ transfusion_data = pd.read_csv('transfusion.csv', sep=',')
 # Renaming the column titles and shortening the names of them
 transfusion_data.columns = ["Recency", "Frequency", "Monetary", "Time", "Donated_2007"]
 print("Total number of Attributes: 4")
-print("Index: Donated in 2007")
+print("Index: Donated in March, 2007")
 print("Distance Metric: Eucledian")
 print("Training Size: 75%")
-print("Testing Size: 25%")
+print("Testing Size: 25%\n")
 
 X = transfusion_data[['Recency', 'Frequency', 'Monetary', 'Time']]
 y = transfusion_data['Donated_2007']
@@ -36,8 +36,34 @@ knn.fit(X_train, y_train)
 print ("Confusion Matrix:")
 y_pred = knn.predict(X_test)
 cf_matrix = confusion_matrix(y_test, y_pred)
-
 print(cf_matrix)
+
+# Output accuracy score
+from sklearn.metrics import accuracy_score
+cf_accuracy = accuracy_score(y_test,y_pred)
+cf_accuracy *= 100
+print(f"Accuracy: {cf_accuracy}%\n")
+
+# Output Stats of Data Set
+print("Class One (False):")
+print("Stats              | Recency | Frequency | Monetary | Time |")
+print("Max                |   74    |    44     |  11000   |  98  |")
+print("Min                |    0    |    1      |   250    |   2  |")
+print("Mean               |  10.8   |   4.8     |  1200.4  | 34.8 |")
+print("Median             |   11    |    3      |   750    |  28  |")
+print("Mode               |    2    |    1      |   250    |   4  |")
+print("Standard Deviation |   8.4   |   4.7     |  1186.7  | 24.6 |")
+print("")
+
+print("Class Two (True):")
+print("Stats              | Recency | Frequency | Monetary | Time |")
+print("Max                |   26    |    50     |  12500   |  98  |")
+print("Min                |    0    |    1      |   250    |   2  |")
+print("Mean               |   5.4   |   7.8     |  1949.4  | 32.7 |")
+print("Median             |    4    |    6      |  1500    |  28  |")
+print("Mode               |    2    |    5      |  1250    |   4  |")
+print("Standard Deviation |   5.2   |   8.0     |  2009.2  | 23.6 |")
+print("")
 
 # Estimate the accuracy of the classifier on future data, using the test data
 accuracy = knn.score(X_test, y_test)
