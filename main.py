@@ -14,7 +14,7 @@ transfusion_data = pd.read_csv('transfusion.csv', sep=',')
 transfusion_data.columns = ["Recency", "Frequency", "Monetary", "Time", "Donated_2007"]
 print("Total number of Attributes: 4")
 print("Index: Donated in March, 2007")
-print("Distance Metric: Eucledian")
+print("Distance Metric: Euclidian")
 print("Training Size: 75%")
 print("Testing Size: 25%\n")
 
